@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence, useReducedMotion } from "motion/react"
+import { useEffect, useState, useRef } from "react"
 import { cn } from "@/lib/utils"
 import type { Plan, BillingPeriod } from "@/lib/pricing-data"
 import { FeatureList } from "./feature-list"
@@ -13,20 +13,40 @@ interface PricingCardProps {
 }
 
 export function PricingCard({ plan, billingPeriod, index }: PricingCardProps) {
-  const shouldReduceMotion = useReducedMotion()
   const pricing = plan.pricing[billingPeriod]
+  const [isVisible, setIsVisible] = useState(false)
+  const [priceKey, setPriceKey] = useState(billingPeriod)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const prevPeriod = useRef(billingPeriod)
+
+  // Staggered fade-in on mount
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsVisible(true), index * 150)
+    return () => clearTimeout(timeout)
+  }, [index])
+
+  // Smooth price transition
+  useEffect(() => {
+    if (prevPeriod.current !== billingPeriod) {
+      setIsTransitioning(true)
+      const timeout = setTimeout(() => {
+        setPriceKey(billingPeriod)
+        setIsTransitioning(false)
+      }, 200)
+      prevPeriod.current = billingPeriod
+      return () => clearTimeout(timeout)
+    }
+  }, [billingPeriod])
+
+  const displayPricing = plan.pricing[priceKey]
 
   return (
-    <motion.article
-      initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={
-        shouldReduceMotion
-          ? { duration: 0 }
-          : { duration: 0.6, ease: "easeOut", delay: index * 0.15 }
-      }
+    <article
       className={cn(
-        "relative flex flex-col rounded-2xl border bg-card p-8",
+        "relative flex flex-col rounded-2xl border bg-card p-8 transition-all duration-600 ease-out",
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-10 opacity-0",
         plan.isFeatured
           ? "z-10 border-transparent lg:scale-110"
           : "border-border"
@@ -50,44 +70,42 @@ export function PricingCard({ plan, billingPeriod, index }: PricingCardProps) {
       )}
 
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-card-foreground">{plan.name}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{plan.description}</p>
+        <h3 className="text-2xl font-bold text-card-foreground">
+          {plan.name}
+        </h3>
+        <p className="mt-1 text-sm text-muted-foreground">
+          {plan.description}
+        </p>
       </div>
 
       <div className="mb-8" aria-live="polite" aria-atomic="true">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={billingPeriod}
-            initial={shouldReduceMotion ? {} : { opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
-            className="flex items-baseline gap-1"
+        <div
+          className={cn(
+            "flex items-baseline gap-1 transition-all duration-200",
+            isTransitioning
+              ? "translate-y-2 opacity-0"
+              : "translate-y-0 opacity-100"
+          )}
+        >
+          <span className="text-5xl font-extrabold text-card-foreground">
+            {"$"}
+            {displayPricing.amount}
+          </span>
+          <span className="text-base text-muted-foreground">
+            {displayPricing.label}
+          </span>
+        </div>
+        {priceKey !== "1-month" && (
+          <p
+            className={cn(
+              "mt-1 text-sm text-muted-foreground transition-opacity duration-200",
+              isTransitioning ? "opacity-0" : "opacity-100"
+            )}
           >
-            <span className="text-5xl font-extrabold text-card-foreground">
-              {"$"}
-              {pricing.amount}
-            </span>
-            <span className="text-base text-muted-foreground">
-              {pricing.label}
-            </span>
-          </motion.div>
-        </AnimatePresence>
-        {billingPeriod !== "1-month" && (
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`per-month-${billingPeriod}`}
-              initial={shouldReduceMotion ? {} : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={shouldReduceMotion ? {} : { opacity: 0 }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.2, delay: 0.1 }}
-              className="mt-1 text-sm text-muted-foreground"
-            >
-              {"$"}
-              {pricing.perMonth.toFixed(2)}
-              {"/mo equivalent"}
-            </motion.p>
-          </AnimatePresence>
+            {"$"}
+            {displayPricing.perMonth.toFixed(2)}
+            {"/mo equivalent"}
+          </p>
         )}
       </div>
 
@@ -101,6 +119,6 @@ export function PricingCard({ plan, billingPeriod, index }: PricingCardProps) {
       >
         Choose Plan
       </HeartbeatButton>
-    </motion.article>
+    </article>
   )
 }

@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { BILLING_OPTIONS, type BillingPeriod } from "@/lib/pricing-data"
 
@@ -10,12 +9,24 @@ interface BillingToggleProps {
 }
 
 export function BillingToggle({ selected, onChange }: BillingToggleProps) {
+  const selectedIndex = BILLING_OPTIONS.findIndex((o) => o.key === selected)
+
   return (
     <div
-      className="inline-flex items-center rounded-full bg-secondary p-1"
+      className="relative inline-flex items-center rounded-full bg-secondary p-1"
       role="tablist"
       aria-label="Billing period"
     >
+      {/* Animated sliding pill */}
+      <span
+        className="absolute top-1 bottom-1 rounded-full bg-primary transition-all duration-300 ease-out"
+        style={{
+          width: `calc(${100 / BILLING_OPTIONS.length}% - 0px)`,
+          left: `calc(${(selectedIndex * 100) / BILLING_OPTIONS.length}% + 0px)`,
+        }}
+        aria-hidden="true"
+      />
+
       {BILLING_OPTIONS.map((option) => {
         const isActive = selected === option.key
         return (
@@ -25,20 +36,15 @@ export function BillingToggle({ selected, onChange }: BillingToggleProps) {
             aria-selected={isActive}
             tabIndex={isActive ? 0 : -1}
             className={cn(
-              "relative rounded-full px-5 py-2 text-sm font-medium transition-colors",
+              "relative z-10 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-              isActive ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              isActive
+                ? "text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground"
             )}
             onClick={() => onChange(option.key)}
           >
-            {isActive && (
-              <motion.span
-                layoutId="billing-active-pill"
-                className="absolute inset-0 rounded-full bg-primary"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
-              />
-            )}
-            <span className="relative z-10">{option.label}</span>
+            {option.label}
           </button>
         )
       })}

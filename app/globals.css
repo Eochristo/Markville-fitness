@@ -92,3 +92,33 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Heartbeat pulse animation for featured CTA */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(225, 29, 72, 0.4);
+  }
+  20% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.6);
+  }
+  40% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(225, 29, 72, 0.4);
+  }
+  60% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.6);
+  }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-heartbeat {
+    animation: none;
+  }
+}
