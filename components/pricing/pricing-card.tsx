@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
+import { motion, AnimatePresence, useReducedMotion } from "motion/react"
 import { cn } from "@/lib/utils"
 import type { Plan, BillingPeriod } from "@/lib/pricing-data"
 import { FeatureList } from "./feature-list"
