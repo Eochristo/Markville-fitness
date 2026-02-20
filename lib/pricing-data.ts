@@ -83,5 +83,6 @@ export const SHARED_PERKS = [
     description:
       "Any burrito bowl + Vitamin Water or Body Armour Drink (excluding shrimp and steak) at $14.50 — 9670 Markham Rd",
     icon: "utensils" as const,
+    href: "https://www.barburrito.ca/location/wismer-commons",
   },
 ]
