@@ -10,9 +10,19 @@ interface PricingCardProps {
   plan: Plan
   billingPeriod: BillingPeriod
   index: number
+  isGlowing: boolean
+  onHover: () => void
+  onHoverEnd: () => void
 }
 
-export function PricingCard({ plan, billingPeriod, index }: PricingCardProps) {
+export function PricingCard({
+  plan,
+  billingPeriod,
+  index,
+  isGlowing,
+  onHover,
+  onHoverEnd,
+}: PricingCardProps) {
   const pricing = plan.pricing[billingPeriod]
   const [isVisible, setIsVisible] = useState(false)
   const [priceKey, setPriceKey] = useState(billingPeriod)
@@ -42,20 +52,22 @@ export function PricingCard({ plan, billingPeriod, index }: PricingCardProps) {
 
   return (
     <article
+      onMouseEnter={onHover}
+      onMouseLeave={onHoverEnd}
       className={cn(
-        "relative flex flex-col rounded-2xl border bg-card p-8 transition-all duration-600 ease-out",
+        "relative flex flex-col rounded-2xl border bg-card p-8 transition-all duration-500 ease-out",
         isVisible
           ? "translate-y-0 opacity-100"
           : "translate-y-10 opacity-0",
-        plan.isFeatured
-          ? "z-10 border-transparent lg:scale-110"
-          : "border-border"
+        plan.isFeatured ? "z-10 lg:scale-110" : "",
+        isGlowing ? "border-transparent" : "border-border"
       )}
-      style={
-        plan.isFeatured
-          ? { boxShadow: "0 0 40px rgba(225, 29, 72, 0.3)" }
-          : undefined
-      }
+      style={{
+        boxShadow: isGlowing
+          ? "0 0 40px rgba(225, 29, 72, 0.35), 0 0 80px rgba(225, 29, 72, 0.15)"
+          : "0 0 0px rgba(225, 29, 72, 0)",
+        transition: "box-shadow 0.4s ease, border-color 0.4s ease, opacity 0.6s ease, transform 0.6s ease",
+      }}
       aria-label={`${plan.name} plan`}
     >
       {plan.isFeatured && (

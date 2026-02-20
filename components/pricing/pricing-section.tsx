@@ -8,6 +8,7 @@ import { SharedPerks } from "./shared-perks"
 
 export function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("1-month")
+  const [hoveredPlanId, setHoveredPlanId] = useState<string | null>(null)
 
   return (
     <section
@@ -43,6 +44,11 @@ export function PricingSection() {
               plan={plan}
               billingPeriod={billingPeriod}
               index={index}
+              isGlowing={
+                hoveredPlanId ? hoveredPlanId === plan.id : plan.isFeatured
+              }
+              onHover={() => setHoveredPlanId(plan.id)}
+              onHoverEnd={() => setHoveredPlanId(null)}
             />
           ))}
         </div>
