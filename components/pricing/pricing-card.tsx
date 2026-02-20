@@ -126,7 +126,7 @@ export function PricingCard({
       </div>
 
       <HeartbeatButton
-        isFeatured={plan.isFeatured}
+        isGlowing={isGlowing}
         ariaLabel={`Choose ${plan.name} Plan`}
       >
         Choose Plan
