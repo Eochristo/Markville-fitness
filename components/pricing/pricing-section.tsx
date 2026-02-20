@@ -44,9 +44,7 @@ export function PricingSection() {
               plan={plan}
               billingPeriod={billingPeriod}
               index={index}
-              isGlowing={
-                hoveredPlanId ? hoveredPlanId === plan.id : plan.isFeatured
-              }
+              isGlowing={hoveredPlanId === plan.id}
               onHover={() => setHoveredPlanId(plan.id)}
               onHoverEnd={() => setHoveredPlanId(null)}
             />
