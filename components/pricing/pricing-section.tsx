@@ -37,7 +37,7 @@ export function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="mx-auto grid max-w-sm grid-cols-1 items-center gap-8 md:max-w-none md:grid-cols-3 lg:gap-4">
+        <div className="mx-auto grid max-w-sm grid-cols-1 items-stretch gap-8 md:max-w-none md:grid-cols-3 lg:gap-4">
           {PLANS.map((plan, index) => (
             <PricingCard
               key={plan.id}
