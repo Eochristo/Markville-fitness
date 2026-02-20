@@ -76,6 +76,7 @@ export const SHARED_PERKS = [
     title: "15% Discount at Supplement King",
     description: "179 Enterprise Boulevard",
     icon: "tag" as const,
+    href: "https://www.supplementking.com",
   },
   {
     title: "Barburrito Markham Special",

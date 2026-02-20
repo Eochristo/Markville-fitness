@@ -21,9 +21,20 @@ export function SharedPerks() {
                 <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">
-                  {perk.title}
-                </p>
+                {perk.href ? (
+                  <a
+                    href={perk.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-2 transition-colors hover:decoration-primary"
+                  >
+                    {perk.title}
+                  </a>
+                ) : (
+                  <p className="text-sm font-semibold text-foreground">
+                    {perk.title}
+                  </p>
+                )}
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {perk.description}
                 </p>
