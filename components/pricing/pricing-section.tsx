@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { PLANS, type BillingPeriod } from "@/lib/pricing-data"
 import { BillingToggle } from "./billing-toggle"
 import { PricingCard } from "./pricing-card"
@@ -19,14 +18,6 @@ export function PricingSection() {
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-12 flex flex-col items-center gap-4 text-center">
-          <Image
-            src="/images/gear-man-logo.jpg"
-            alt="Markville Fitness gear man logo"
-            width={96}
-            height={96}
-            className="mb-2 h-20 w-20 object-contain sm:h-24 sm:w-24"
-            priority
-          />
           <h2
             id="pricing-heading"
             className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
