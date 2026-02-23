@@ -1,14 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { PLANS, type BillingPeriod } from "@/lib/pricing-data"
 import { BillingToggle } from "./billing-toggle"
 import { PricingCard } from "./pricing-card"
 import { SharedPerks } from "./shared-perks"
+import { AuthModal } from "./auth-modal"
 
 export function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("1-month")
   const [hoveredPlanId, setHoveredPlanId] = useState<string | null>(null)
+  const [selectedPlanName, setSelectedPlanName] = useState<string | null>(null)
+  const closeAuth = useCallback(() => setSelectedPlanName(null), [])
 
   return (
     <section
@@ -47,9 +50,16 @@ export function PricingSection() {
               isGlowing={hoveredPlanId === plan.id}
               onHover={() => setHoveredPlanId(plan.id)}
               onHoverEnd={() => setHoveredPlanId(null)}
+              onChoosePlan={() => setSelectedPlanName(plan.name)}
             />
           ))}
         </div>
+
+        <AuthModal
+          planName={selectedPlanName ?? ""}
+          isOpen={selectedPlanName !== null}
+          onClose={closeAuth}
+        />
 
         {/* Shared Perks */}
         <div className="mt-16">
