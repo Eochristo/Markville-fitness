@@ -34,6 +34,7 @@ export const PLANS: Plan[] = [
     features: [
       "Access to gym facilities",
       "1 free personal training session / month",
+      "1 free fitness class / month",
     ],
     isFeatured: false,
   },
