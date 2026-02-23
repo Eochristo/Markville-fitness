@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import { cn } from "@/lib/utils"
 import type { Plan, BillingPeriod } from "@/lib/pricing-data"
 import { FeatureList } from "./feature-list"
 import { HeartbeatButton } from "./heartbeat-button"
+import { AuthModal } from "./auth-modal"
 
 interface PricingCardProps {
   plan: Plan
@@ -25,6 +26,8 @@ export function PricingCard({
 }: PricingCardProps) {
   const pricing = plan.pricing[billingPeriod]
   const [isVisible, setIsVisible] = useState(false)
+  const [isAuthOpen, setIsAuthOpen] = useState(false)
+  const closeAuth = useCallback(() => setIsAuthOpen(false), [])
   const [priceKey, setPriceKey] = useState(billingPeriod)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const prevPeriod = useRef(billingPeriod)
@@ -128,9 +131,16 @@ export function PricingCard({
       <HeartbeatButton
         isGlowing={isGlowing}
         ariaLabel={`Choose ${plan.name} Plan`}
+        onClick={() => setIsAuthOpen(true)}
       >
         Choose Plan
       </HeartbeatButton>
+
+      <AuthModal
+        planName={plan.name}
+        isOpen={isAuthOpen}
+        onClose={closeAuth}
+      />
     </article>
   )
 }
