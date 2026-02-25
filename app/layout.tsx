@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { FixedBackgroundGlow } from '@/components/layout/fixed-background-glow'
 
 import './globals.css'
 
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <FixedBackgroundGlow />
         {children}
       </body>
     </html>
