@@ -5,8 +5,6 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [
-  { label: "Programs", href: "#programs" },
-  { label: "Pricing", href: "#pricing" },
   { label: "Classes", href: "#classes" },
   { label: "Trainers", href: "#trainers" },
   { label: "Contact", href: "#contact" },
@@ -168,7 +166,7 @@ export function SiteHeader() {
             ))}
           </div>
           <Link
-            href="#pricing"
+            href="/pricing"
             className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Join Now
@@ -210,7 +208,7 @@ export function SiteHeader() {
           </nav>
 
           <Link
-            href="#pricing"
+            href="/pricing"
             onClick={() => setMobileOpen(false)}
             className="mt-4 w-full max-w-xs rounded-lg bg-primary px-6 py-3 text-center text-base font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
           >
