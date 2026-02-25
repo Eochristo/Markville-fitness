@@ -134,7 +134,7 @@ body {
 }
 
 .animate-heartrate-scroll {
-  animation: heartrate-scroll 8s linear infinite;
+  animation: heartrate-scroll 20s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
