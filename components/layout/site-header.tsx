@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { LiveHeartRateMonitor } from "./live-heart-rate-monitor"
 
 const NAV_LINKS = [
   { label: "Classes", href: "/classes" },
@@ -149,8 +150,9 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* Desktop right side: socials + CTA */}
+        {/* Desktop right side: heart monitor + socials + CTA */}
         <div className="hidden items-center gap-4 md:flex">
+          <LiveHeartRateMonitor />
           <div className="flex items-center gap-1">
             {SOCIAL_LINKS.map((social) => (
               <a

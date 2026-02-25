@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { HeartRateGraph } from '@/components/layout/heart-rate-graph'
 
 import './globals.css'
 
@@ -23,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <HeartRateGraph />
         {children}
       </body>
     </html>
