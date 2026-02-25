@@ -44,9 +44,17 @@ export function ClassSchedule() {
                             Instructor: {cls.instructor}
                           </p>
                         </div>
-                        <p className="whitespace-nowrap text-sm text-muted-foreground">
-                          {cls.startTime} - {cls.endTime}
-                        </p>
+                        <div className="flex items-center gap-4">
+                          <p className="whitespace-nowrap text-sm text-muted-foreground">
+                            {cls.startTime} - {cls.endTime}
+                          </p>
+                          <button
+                            onClick={(e) => e.stopPropagation()}
+                            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
+                          >
+                            Sign Up
+                          </button>
+                        </div>
                       </div>
                     </button>
 
@@ -58,16 +66,6 @@ export function ClassSchedule() {
                         </p>
                       </div>
                     )}
-
-                    {/* Sign Up button - always visible */}
-                    <div className="flex items-center justify-end border-t border-border/50 p-3">
-                      <button
-                        onClick={(e) => e.stopPropagation()}
-                        className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
-                      >
-                        Sign Up
-                      </button>
-                    </div>
                   </div>
                 ))}
               </div>
