@@ -14,7 +14,7 @@ const NAV_LINKS = [
 const SOCIAL_LINKS = [
   {
     label: "Instagram",
-    href: "https://instagram.com/9",
+    href: "https://www.instagram.com/markvillefitness?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
         <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
