@@ -5,7 +5,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [
-  { label: "Classes", href: "#classes" },
+  { label: "Classes", href: "/classes" },
   { label: "Trainers", href: "#trainers" },
   { label: "Contact", href: "#contact" },
 ]
