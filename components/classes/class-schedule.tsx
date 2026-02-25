@@ -25,38 +25,41 @@ export function ClassSchedule() {
               <h2 className="text-xl font-bold text-primary">{day}</h2>
               <div className="space-y-2">
                 {classes.map((cls) => (
-                  <div key={cls.id} className="space-y-0 rounded-lg border border-border bg-card transition-all">
+                  <div
+                    key={cls.id}
+                    className="space-y-0 overflow-hidden rounded-lg border border-border bg-card transition-all"
+                  >
                     {/* Main class card - clickable for description */}
-                    <button
+                    <div
                       onClick={() =>
                         setExpandedClassId(
                           expandedClassId === cls.id ? null : cls.id
                         )
                       }
-                      className="w-full text-left"
+                      className="flex cursor-pointer flex-col gap-2 p-4 transition-all hover:bg-card/80 sm:flex-row sm:items-center sm:justify-between"
                     >
-                      <div className="flex flex-col gap-2 p-4 transition-all hover:bg-card/80 sm:flex-row sm:items-center sm:justify-between">
-                        <div className="space-y-1">
-                          <h3 className="font-semibold text-foreground">
-                            {cls.name}
-                          </h3>
-                          <p className="text-sm text-primary">
-                            Instructor: {cls.instructor}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-4">
-                          <p className="whitespace-nowrap text-sm text-muted-foreground">
-                            {cls.startTime} - {cls.endTime}
-                          </p>
-                          <button
-                            onClick={(e) => e.stopPropagation()}
-                            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
-                          >
-                            Sign Up
-                          </button>
-                        </div>
+                      <div className="space-y-1">
+                        <h3 className="font-semibold text-foreground">
+                          {cls.name}
+                        </h3>
+                        <p className="text-sm text-primary">
+                          Instructor: {cls.instructor}
+                        </p>
                       </div>
-                    </button>
+                      <div className="flex items-center gap-4">
+                        <p className="whitespace-nowrap text-sm text-muted-foreground">
+                          {cls.startTime} - {cls.endTime}
+                        </p>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                          }}
+                          className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
+                        >
+                          Sign Up
+                        </button>
+                      </div>
+                    </div>
 
                     {/* Expanded description section */}
                     {expandedClassId === cls.id && (
