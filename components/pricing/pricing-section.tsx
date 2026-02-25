@@ -15,6 +15,7 @@ export function PricingSection() {
 
   return (
     <section
+      id="pricing"
       className="px-4 py-16 sm:py-24"
       aria-labelledby="pricing-heading"
     >
