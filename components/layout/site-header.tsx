@@ -107,20 +107,19 @@ export function SiteHeader() {
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
               <svg
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-primary-foreground"
+                fill="currentColor"
+                className="h-6 w-6 text-primary-foreground"
               >
-                <path d="M6.5 6.5h11" />
-                <path d="M6.5 17.5h11" />
-                <path d="M12 6.5v11" />
-                <rect x="2" y="8" width="4" height="8" rx="1" />
-                <rect x="18" y="8" width="4" height="8" rx="1" />
-                <rect x="5" y="6" width="2" height="12" rx="0.5" />
-                <rect x="17" y="6" width="2" height="12" rx="0.5" />
+                {/* Left plate */}
+                <rect x="2" y="8" width="3" height="8" rx="0.5" />
+                {/* Left handle */}
+                <rect x="5.5" y="9" width="2" height="6" rx="1" />
+                {/* Center bar */}
+                <rect x="8" y="10" width="8" height="4" rx="0.5" />
+                {/* Right handle */}
+                <rect x="16.5" y="9" width="2" height="6" rx="1" />
+                {/* Right plate */}
+                <rect x="19" y="8" width="3" height="8" rx="0.5" />
               </svg>
             </div>
             <div className="flex flex-col">
