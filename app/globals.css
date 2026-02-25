@@ -123,27 +123,22 @@ body {
   }
 }
 
-/* Heart rate graph pulse animation */
-@keyframes heartrate-pulse {
+/* Heart rate graph smooth scroll animation */
+@keyframes heartrate-scroll {
   0% {
-    opacity: 0.05;
-    transform: translateX(-100%);
-  }
-  50% {
-    opacity: 0.15;
+    transform: translateX(0);
   }
   100% {
-    opacity: 0.05;
-    transform: translateX(100%);
+    transform: translateX(-50%);
   }
 }
 
-.animate-heartrate-pulse {
-  animation: heartrate-pulse 2s ease-in-out infinite;
+.animate-heartrate-scroll {
+  animation: heartrate-scroll 8s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-heartrate-pulse {
+  .animate-heartrate-scroll {
     animation: none;
   }
 }
