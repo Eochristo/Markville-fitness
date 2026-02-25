@@ -122,3 +122,28 @@ body {
     animation: none;
   }
 }
+
+/* Heart rate graph pulse animation */
+@keyframes heartrate-pulse {
+  0% {
+    opacity: 0.05;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0.05;
+    transform: translateX(100%);
+  }
+}
+
+.animate-heartrate-pulse {
+  animation: heartrate-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-heartrate-pulse {
+    animation: none;
+  }
+}
