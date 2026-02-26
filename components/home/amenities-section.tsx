@@ -16,9 +16,9 @@ export function AmenitiesSection() {
       description: "Dedicated space for yoga, pilates, and flexibility training with expert instructors.",
     },
     {
-      icon: "🏊",
-      title: "Swimming Pool",
-      description: "Olympic-size pool perfect for aquatic fitness and recreational swimming.",
+      icon: "👩",
+      title: "Women's Only Section",
+      description: "Dedicated space designed exclusively for women members, ensuring comfort and a supportive community.",
     },
     {
       icon: "👥",
