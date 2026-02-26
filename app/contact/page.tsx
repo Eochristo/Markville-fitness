@@ -1,5 +1,4 @@
 import { SiteHeader } from "@/components/layout/site-header"
-import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfoCard } from "@/components/contact/contact-info-card"
 import { CallUsSection } from "@/components/contact/call-us-section"
 
@@ -25,19 +24,11 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-3">
-              {/* Contact Form - 2 columns on large screens */}
-              <div className="lg:col-span-2 rounded-lg border border-border bg-card p-8">
+            <div className="flex justify-center">
+              {/* Contact Info Card - Centered */}
+              <div className="w-full max-w-md rounded-lg border border-border bg-card p-8">
                 <h2 className="mb-8 text-2xl font-semibold text-foreground">
                   Contact Us
-                </h2>
-                <ContactForm />
-              </div>
-
-              {/* Contact Info - 1 column */}
-              <div className="rounded-lg border border-border bg-card/50 p-8">
-                <h2 className="mb-8 text-2xl font-semibold text-foreground">
-                  Quick Contact
                 </h2>
                 <ContactInfoCard />
               </div>
