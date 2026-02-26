@@ -27,7 +27,7 @@ export function CallUsSection() {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-lg border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6 text-center">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Email</h3>
             <a
               href="mailto:MarkvilleFitness@gmail.com"
