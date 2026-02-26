@@ -122,3 +122,23 @@ body {
     animation: none;
   }
 }
+
+/* Heart rate graph smooth scroll animation */
+@keyframes heartrate-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-heartrate-scroll {
+  animation: heartrate-scroll 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-heartrate-scroll {
+    animation: none;
+  }
+}

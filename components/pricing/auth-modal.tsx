@@ -90,7 +90,7 @@ export function AuthModal({ planName, isOpen, onClose }: AuthModalProps) {
             Log In
           </a>
           <a
-            href="/signup"
+            href={`/signup?plan=${encodeURIComponent(planName)}`}
             className="flex w-full items-center justify-center rounded-lg border-2 border-foreground bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
           >
             Create Account
