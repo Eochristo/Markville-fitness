@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { LiveHeartRateMonitor } from "./live-heart-rate-monitor"
+import { HeaderHeartbeatPulse } from "./header-heartbeat-pulse"
 
 const NAV_LINKS = [
   { label: "Classes", href: "/classes" },
@@ -99,6 +100,7 @@ export function SiteHeader() {
           : "bg-background"
       )}
     >
+      <HeaderHeartbeatPulse />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
