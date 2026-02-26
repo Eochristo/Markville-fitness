@@ -27,14 +27,16 @@ export function CallUsSection() {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-lg border border-border bg-card p-6 text-center">
-            <h3 className="mb-2 text-xl font-semibold text-foreground">Email</h3>
-            <a
-              href="mailto:MarkvilleFitness@gmail.com"
-              className="text-primary hover:underline"
-            >
-              MarkvilleFitness@gmail.com
-            </a>
+          <div className="rounded-lg border border-border bg-card p-6">
+            <h3 className="mb-2 text-center text-xl font-semibold text-foreground">Email</h3>
+            <div className="flex justify-center">
+              <a
+                href="mailto:MarkvilleFitness@gmail.com"
+                className="text-primary hover:underline"
+              >
+                MarkvilleFitness@gmail.com
+              </a>
+            </div>
           </div>
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Visit Us</h3>
