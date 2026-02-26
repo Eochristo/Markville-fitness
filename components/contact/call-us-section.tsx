@@ -26,7 +26,7 @@ export function CallUsSection() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-3">
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Email</h3>
             <a
@@ -41,6 +41,13 @@ export function CallUsSection() {
             <p className="text-sm text-muted-foreground">
               190 Bullock Drive<br />
               Markham, Ontario L3P 1V7
+            </p>
+          </div>
+          <div className="rounded-lg border border-border bg-card p-6">
+            <h3 className="mb-2 text-xl font-semibold text-foreground">Hours</h3>
+            <p className="text-sm text-muted-foreground">
+              Mon-Fri: 6:30am - 10:30pm<br />
+              Sat-Sun: 8:00am - 7:00pm
             </p>
           </div>
         </div>
