@@ -149,9 +149,8 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* Desktop right side: heart monitor + socials + CTA */}
+        {/* Desktop right side: socials + CTA */}
         <div className="hidden items-center gap-4 md:flex">
-          <LiveHeartRateMonitor />
           <div className="flex items-center gap-1">
             {SOCIAL_LINKS.map((social) => (
               <a
@@ -184,6 +183,9 @@ export function SiteHeader() {
           <HamburgerIcon open={mobileOpen} />
         </button>
       </div>
+
+      {/* Full-width heartbeat rhythm */}
+      <LiveHeartRateMonitor />
 
       {/* Mobile overlay nav */}
       <div
