@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { AnimatedBackgroundOrb } from '@/components/layout/animated-background-orb'
 
 import './globals.css'
 
@@ -23,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <AnimatedBackgroundOrb />
         {children}
       </body>
     </html>
