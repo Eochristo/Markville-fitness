@@ -103,11 +103,10 @@ export function SiteHeader() {
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
           <Link href="/" className="group flex flex-col items-center">
-            <span className="font-exo text-2xl font-black uppercase tracking-[0.08em] text-foreground leading-none">
-              MARKVILLE
+            <span className="font-serif text-2xl font-bold italic tracking-tight text-foreground border-b-2 border-foreground pb-0.5">
+              Markville
             </span>
-            <span className="w-full h-[2px] bg-foreground mt-1" />
-            <span className="text-[9px] font-medium uppercase tracking-[0.25em] text-foreground mt-1">
+            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-foreground mt-1">
               Fitness
             </span>
           </Link>
