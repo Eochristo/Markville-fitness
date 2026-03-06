@@ -102,9 +102,13 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
-          <Link href="/" className="group flex flex-col items-center">
-            <span className="font-serif text-2xl font-bold italic tracking-tight text-foreground border-b-2 border-foreground pb-0.5">
-              Markville
+          <Link 
+            href="/" 
+            className="group flex flex-col items-center min-h-[44px] min-w-[44px] justify-center active:scale-95 transition-transform"
+            aria-label="Go to home page"
+          >
+            <span className="font-bebas text-3xl tracking-wide text-foreground border-b-2 border-foreground pb-0.5 leading-none">
+              MARKVILLE
             </span>
             <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-foreground mt-1">
               Fitness
