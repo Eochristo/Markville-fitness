@@ -1,4 +1,3 @@
-import { SiteHeader } from "@/components/layout/site-header"
 import { CallUsSection } from "@/components/contact/call-us-section"
 
 export const metadata = {
@@ -8,11 +7,8 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      <SiteHeader />
-      <main className="bg-background">
-        <CallUsSection />
-      </main>
-    </>
+    <main className="bg-background">
+      <CallUsSection />
+    </main>
   )
 }

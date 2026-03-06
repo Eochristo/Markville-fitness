@@ -1,5 +1,4 @@
 import { Metadata } from "next"
-import { SiteHeader } from "@/components/layout/site-header"
 import { ClassSchedule } from "@/components/classes/class-schedule"
 
 export const metadata: Metadata = {
@@ -10,11 +9,8 @@ export const metadata: Metadata = {
 
 export default function ClassesPage() {
   return (
-    <>
-      <SiteHeader />
-      <main className="min-h-screen bg-background">
-        <ClassSchedule />
-      </main>
-    </>
+    <main className="min-h-screen bg-background">
+      <ClassSchedule />
+    </main>
   )
 }

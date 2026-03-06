@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Bebas_Neue } from 'next/font/google'
+import { SiteHeader } from '@/components/layout/site-header'
 
 import './globals.css'
 
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${bebasNeue.variable} font-sans antialiased`}>
+        <SiteHeader />
         {children}
       </body>
     </html>
