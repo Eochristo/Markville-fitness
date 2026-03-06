@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { LiveHeartRateMonitor } from "./live-heart-rate-monitor"
 
@@ -102,34 +103,15 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
-          <Link href="/" className="group flex items-center gap-2.5">
-            {/* Dumbbell icon as logo mark */}
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-6 w-6 text-primary-foreground"
-              >
-                {/* Left plate */}
-                <rect x="2" y="8" width="3" height="8" rx="0.5" />
-                {/* Left handle */}
-                <rect x="5.5" y="9" width="2" height="6" rx="1" />
-                {/* Center bar */}
-                <rect x="8" y="10" width="8" height="4" rx="0.5" />
-                {/* Right handle */}
-                <rect x="16.5" y="9" width="2" height="6" rx="1" />
-                {/* Right plate */}
-                <rect x="19" y="8" width="3" height="8" rx="0.5" />
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold tracking-tight text-foreground leading-none">
-                MARKVILLE
-              </span>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary leading-none mt-0.5">
-                Fitness
-              </span>
-            </div>
+          <Link href="/" className="group flex items-center">
+            <Image
+              src="/images/markville-logo.png"
+              alt="Markville Fitness"
+              width={140}
+              height={50}
+              className="h-10 w-auto brightness-0 invert"
+              priority
+            />
           </Link>
           <span className="ml-3 hidden text-xs text-muted-foreground lg:block">
             Push Beyond Limits
