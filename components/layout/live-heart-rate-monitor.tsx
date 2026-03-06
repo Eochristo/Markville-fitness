@@ -1,48 +1,56 @@
 "use client"
 
 export function LiveHeartRateMonitor() {
+  // One full heartbeat cycle (lub-dub + flat): ~200 units wide
+  // We need enough repetitions to fill 2x the viewport for seamless scrolling
+  const beat =
+    "0,30 15,30 20,30 25,32 30,28 35,30 40,30 50,30 55,20 58,10 62,38 66,30 70,32 75,30 80,30 85,29 90,31 95,30 100,30 115,30 120,30 125,32 130,28 135,30 140,30 150,30 155,20 158,10 162,38 166,30 170,32 175,30 180,30 185,29 190,31 195,30 200,30"
+
+  // Repeat the pattern 10 times across a 2000-unit wide SVG
+  const points = Array.from({ length: 10 }, (_, i) =>
+    beat
+      .split(" ")
+      .map((p) => {
+        const [x, y] = p.split(",")
+        return `${Number(x) + i * 200},${y}`
+      })
+      .join(" ")
+  ).join(" ")
+
   return (
-    <div className="relative h-12 w-40 overflow-hidden rounded-lg border border-primary/30 bg-black/40 backdrop-blur-sm">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       <svg
-        className="h-full w-full"
-        viewBox="0 0 300 50"
-        preserveAspectRatio="xMidYMid meet"
+        className="absolute top-0 left-0 h-full opacity-[0.15]"
+        style={{ width: "200%", animation: "heartrate-header 4s linear infinite" }}
+        viewBox="0 0 2000 60"
+        preserveAspectRatio="none"
       >
         <defs>
           <linearGradient id="headerHeartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#E11D48" stopOpacity="0.3" />
-            <stop offset="50%" stopColor="#E11D48" stopOpacity="1" />
-            <stop offset="100%" stopColor="#E11D48" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#E11D48" stopOpacity="0.6" />
+            <stop offset="25%" stopColor="#E11D48" stopOpacity="1" />
+            <stop offset="50%" stopColor="#E11D48" stopOpacity="0.6" />
+            <stop offset="75%" stopColor="#E11D48" stopOpacity="1" />
+            <stop offset="100%" stopColor="#E11D48" stopOpacity="0.6" />
           </linearGradient>
         </defs>
-
-        {/* Animated EKG line with heartbeat spikes */}
         <polyline
-          points="0,25 10,25 15,25 20,27 25,23 30,25 35,25 40,25 45,18 50,8 55,25 60,27 65,25 70,25 75,24 80,26 85,25 90,25 100,25 110,25 115,25 120,27 125,23 130,25 135,25 140,25 145,18 150,8 155,25 160,27 165,25 170,25 175,24 180,26 185,25 190,25 200,25 210,25 215,25 220,27 225,23 230,25 235,25 240,25 245,18 250,8 255,25 260,27 265,25 270,25 275,24 280,26 285,25 290,25 300,25"
+          points={points}
           stroke="url(#headerHeartGradient)"
-          strokeWidth="1.5"
+          strokeWidth="2"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{
-            animation: "heartrate-monitor 3s linear infinite",
-          }}
         />
       </svg>
 
-      {/* BPM display */}
-      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-black/60 via-transparent to-black/60">
-        <span className="text-xs font-semibold text-primary">72 BPM</span>
-      </div>
-
       <style>{`
-        @keyframes heartrate-monitor {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
+        @keyframes heartrate-header {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .absolute { animation: none !important; }
         }
       `}</style>
     </div>
