@@ -93,7 +93,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-colors duration-500 ease-in-out",
         mobileOpen
           ? "bg-black border-b border-black"
           : scrolled
@@ -179,13 +179,20 @@ export function SiteHeader() {
       {/* Mobile overlay nav */}
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col bg-black transition-all duration-300 md:hidden",
+          "fixed inset-0 z-40 flex flex-col bg-black transition-opacity duration-500 ease-in-out md:hidden",
           mobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         )}
       >
-        <div className="flex flex-1 flex-col items-center justify-center gap-6 px-6 pt-16">
+        <div 
+          className={cn(
+            "flex flex-1 flex-col items-center justify-center gap-6 px-6 pt-16 transition-all duration-500 ease-in-out",
+            mobileOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0"
+          )}
+        >
           <nav className="flex flex-col items-center gap-4" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
               <Link
