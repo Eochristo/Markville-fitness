@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Phone } from "lucide-react"
 
 export function CallUsSection() {
   return (
@@ -16,7 +17,7 @@ export function CallUsSection() {
             href="tel:905-209-0763"
             className="rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
           >
-            📞 Call 905-209-0763
+            <Phone className="inline-block h-5 w-5 text-green-400" /> Call 905-209-0763
           </a>
           <Link
             href="/pricing"
