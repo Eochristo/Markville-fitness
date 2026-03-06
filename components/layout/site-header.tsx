@@ -177,7 +177,7 @@ export function SiteHeader() {
       {/* Mobile overlay nav */}
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col bg-background transition-all duration-300 md:hidden",
+          "fixed inset-0 z-40 flex flex-col bg-black transition-all duration-300 md:hidden",
           mobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
