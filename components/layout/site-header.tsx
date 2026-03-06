@@ -94,9 +94,11 @@ export function SiteHeader() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "border-b border-border/50 bg-background/90 backdrop-blur-lg"
-          : "bg-background"
+        mobileOpen
+          ? "bg-black"
+          : scrolled
+            ? "border-b border-border/50 bg-background/90 backdrop-blur-lg"
+            : "bg-background"
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
@@ -177,7 +179,7 @@ export function SiteHeader() {
       {/* Mobile overlay nav */}
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col bg-black transition-all duration-300 md:hidden",
+          "fixed inset-0 z-40 flex flex-col bg-black pt-20 transition-all duration-300 md:hidden",
           mobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
