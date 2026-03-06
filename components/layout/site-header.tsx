@@ -103,7 +103,7 @@ export function SiteHeader() {
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
           <Link href="/" className="group flex flex-col items-center">
-            <span className="font-serif text-2xl font-bold tracking-tight text-foreground border-b-2 border-foreground pb-0.5">
+            <span className="font-serif text-2xl font-bold italic tracking-tight text-foreground border-b-2 border-foreground pb-0.5">
               Markville
             </span>
             <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-foreground mt-1">
