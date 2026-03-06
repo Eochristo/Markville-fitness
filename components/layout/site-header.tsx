@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { LiveHeartRateMonitor } from "./live-heart-rate-monitor"
 
@@ -103,15 +102,13 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
-          <Link href="/" className="group flex items-center rounded-md bg-black px-3 py-2">
-            <Image
-              src="/images/markville-logo.png"
-              alt="Markville Fitness"
-              width={140}
-              height={50}
-              className="h-10 w-auto brightness-0 invert"
-              priority
-            />
+          <Link href="/" className="group flex flex-col items-center">
+            <span className="font-serif text-2xl font-bold tracking-tight text-foreground border-b-2 border-foreground pb-0.5">
+              Markville
+            </span>
+            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-foreground mt-1">
+              Fitness
+            </span>
           </Link>
           <span className="ml-3 hidden text-xs text-muted-foreground lg:block">
             Push Beyond Limits
