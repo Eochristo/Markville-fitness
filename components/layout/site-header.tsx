@@ -103,9 +103,15 @@ export function SiteHeader() {
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
           <Link 
-            href="/" 
+            href="/#top" 
             className="group flex flex-col items-center min-h-[44px] min-w-[44px] justify-center active:scale-95 transition-transform"
             aria-label="Go to home page"
+            onClick={() => {
+              setMobileOpen(false)
+              if (window.location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
           >
             <span className="font-bebas text-3xl tracking-wide text-foreground border-b-2 border-foreground pb-0.5 leading-none">
               MARKVILLE

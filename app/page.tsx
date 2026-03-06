@@ -6,7 +6,7 @@ import { SharedPerks } from "@/components/pricing/shared-perks"
 
 export default function Page() {
   return (
-    <main className="bg-background">
+    <main id="top" className="bg-background">
         <HeroSection />
         <AmenitiesSection />
         <TestimonialsSection />
