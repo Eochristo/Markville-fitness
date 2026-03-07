@@ -116,8 +116,8 @@ export function SiteHeader() {
               }
             }}
           >
-            <span className="font-bebas text-3xl tracking-wide text-foreground border-b-2 border-foreground pb-0.5 leading-none">
-              MARKVILLE
+            <span className="font-oleo text-3xl text-foreground border-b-2 border-foreground pb-0.5 leading-none">
+              Markville
             </span>
             <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-foreground mt-1">
               Fitness
