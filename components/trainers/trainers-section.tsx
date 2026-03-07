@@ -16,7 +16,7 @@ const TRAINERS = [
     specialty: "Functional Fitness",
   },
   {
-    name: "Rick Cort",
+    name: "Rick Court",
     specialty: "Bodybuilding",
   },
   {
