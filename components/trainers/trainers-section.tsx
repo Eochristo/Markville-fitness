@@ -23,6 +23,10 @@ const TRAINERS = [
     name: "Lynda",
     specialty: "Yoga & Wellness",
   },
+  {
+    name: "Portchia",
+    specialty: "Personal Training",
+  },
 ]
 
 export function TrainersSection() {
