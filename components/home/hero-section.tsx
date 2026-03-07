@@ -46,7 +46,7 @@ export function HeroSection() {
                 <p className="text-sm text-muted-foreground">Expert Trainers</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">23</p>
+                <p className="text-2xl font-bold text-primary">17</p>
                 <p className="text-sm text-muted-foreground">Weekly Classes</p>
               </div>
             </div>
