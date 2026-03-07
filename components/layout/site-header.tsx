@@ -8,7 +8,7 @@ import { LiveHeartRateMonitor } from "./live-heart-rate-monitor"
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Classes", href: "/classes" },
-  { label: "Trainers", href: "#trainers" },
+  { label: "Trainers", href: "/trainers" },
   { label: "Contact", href: "/contact" },
 ]
 
