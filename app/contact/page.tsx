@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="bg-background">
+    <main className="bg-black min-h-screen">
       <CallUsSection />
     </main>
   )
