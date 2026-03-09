@@ -41,10 +41,15 @@ export function CallUsSection() {
           </div>
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Visit Us</h3>
-            <p className="text-sm text-muted-foreground">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=190+Bullock+Drive+Markham+Ontario+L3P+1V7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-sm text-primary hover:underline transition-colors"
+            >
               190 Bullock Drive<br />
               Markham, Ontario L3P 1V7
-            </p>
+            </a>
           </div>
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Hours</h3>
