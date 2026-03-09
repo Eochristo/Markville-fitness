@@ -46,19 +46,9 @@ export function ClassSchedule() {
                           Instructor: {cls.instructor}
                         </p>
                       </div>
-                      <div className="flex items-center gap-4">
-                        <p className="whitespace-nowrap text-sm text-muted-foreground">
+                      <p className="whitespace-nowrap text-sm text-muted-foreground">
                           {cls.startTime} - {cls.endTime}
                         </p>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                          }}
-                          className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
-                        >
-                          Sign Up
-                        </button>
-                      </div>
                     </div>
 
                     {/* Expanded description section */}
