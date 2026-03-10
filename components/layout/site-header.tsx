@@ -1,9 +1,26 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { LiveHeartRateMonitor } from "./live-heart-rate-monitor"
+
+function UserIcon({ className }: { className?: string }) {
+  return (
+    <svg 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className={className}
+    >
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  )
+}
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -72,6 +89,8 @@ function HamburgerIcon({ open }: { open: boolean }) {
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [loginDropdownOpen, setLoginDropdownOpen] = useState(false)
+  const loginDropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10)
@@ -90,6 +109,17 @@ export function SiteHeader() {
       document.body.style.overflow = ""
     }
   }, [mobileOpen])
+
+  // Close login dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (loginDropdownRef.current && !loginDropdownRef.current.contains(event.target as Node)) {
+        setLoginDropdownOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   return (
     <header
@@ -164,6 +194,44 @@ export function SiteHeader() {
           >
             Join Now
           </Link>
+
+          {/* Login Button with Dropdown */}
+          <div className="relative" ref={loginDropdownRef}>
+            <button
+              onClick={() => setLoginDropdownOpen(!loginDropdownOpen)}
+              className="flex items-center justify-center rounded-full p-2 text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50"
+              aria-label="Account menu"
+              aria-expanded={loginDropdownOpen}
+            >
+              <UserIcon className="h-6 w-6" />
+            </button>
+
+            {/* Dropdown Menu */}
+            <div
+              className={cn(
+                "absolute right-0 top-full mt-2 w-48 rounded-lg border border-border bg-card shadow-lg transition-all duration-200",
+                loginDropdownOpen
+                  ? "pointer-events-auto opacity-100 translate-y-0"
+                  : "pointer-events-none opacity-0 -translate-y-2"
+              )}
+            >
+              <div className="py-2">
+                <button
+                  onClick={() => setLoginDropdownOpen(false)}
+                  className="w-full px-4 py-2 text-left text-sm text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  Log In
+                </button>
+                <Link
+                  href="/pricing"
+                  onClick={() => setLoginDropdownOpen(false)}
+                  className="block w-full px-4 py-2 text-left text-sm text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  Create Account
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Mobile hamburger */}
@@ -214,6 +282,24 @@ export function SiteHeader() {
           >
             Join Now
           </Link>
+
+          {/* Login/Account Options */}
+          <div className="mt-4 flex items-center gap-4">
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted/50"
+            >
+              <UserIcon className="h-5 w-5" />
+              Log In
+            </button>
+            <Link
+              href="/pricing"
+              onClick={() => setMobileOpen(false)}
+              className="text-sm font-medium text-primary hover:underline"
+            >
+              Create Account
+            </Link>
+          </div>
 
           {/* Slogan */}
           <p className="mt-6 text-sm text-muted-foreground">Push Beyond Limits</p>
