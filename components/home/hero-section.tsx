@@ -1,4 +1,13 @@
+"use client"
+
 export function HeroSection() {
+  const scrollToAmenities = () => {
+    const amenitiesSection = document.getElementById("amenities")
+    if (amenitiesSection) {
+      amenitiesSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-32">
       {/* Background blur effect */}
@@ -27,12 +36,12 @@ export function HeroSection() {
               >
                 Join Now
               </a>
-              <a
-                href="#amenities"
+              <button
+                onClick={scrollToAmenities}
                 className="rounded-lg border-2 border-foreground px-8 py-3 text-center font-semibold text-foreground transition-colors hover:bg-foreground/10"
               >
                 Explore Amenities
-              </a>
+              </button>
             </div>
 
             {/* Stats */}
