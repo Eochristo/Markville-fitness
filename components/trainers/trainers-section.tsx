@@ -14,6 +14,7 @@ const TRAINERS = [
   {
     name: "Tom",
     specialty: "Functional Fitness",
+    imageUrl: "/images/trainers/tom.jpg",
   },
   {
     name: "Rick Court",
