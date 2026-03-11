@@ -1,3 +1,7 @@
+"use client"
+
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in"
+
 export function AmenitiesSection() {
   const amenities = [
     {
@@ -38,16 +42,23 @@ export function AmenitiesSection() {
       className="bg-background px-4 py-20 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            World-Class Amenities
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Everything you need to reach your fitness goals
-          </p>
-        </div>
+        <FadeIn direction="up" duration={700}>
+          <div className="mb-16 text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              World-Class Amenities
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Everything you need to reach your fitness goals
+            </p>
+          </div>
+        </FadeIn>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <FadeInStagger 
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          staggerDelay={100}
+          direction="up"
+          duration={600}
+        >
           {amenities.map((amenity, idx) => (
             <div
               key={idx}
@@ -62,7 +73,7 @@ export function AmenitiesSection() {
               </p>
             </div>
           ))}
-        </div>
+        </FadeInStagger>
       </div>
     </section>
   )
