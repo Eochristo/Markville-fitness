@@ -18,6 +18,7 @@ const TRAINERS = [
   {
     name: "Rick Court",
     specialty: "Bodybuilding",
+    imageUrl: "/images/trainers/rick-court.jpg",
   },
   {
     name: "Lynda",
@@ -50,6 +51,7 @@ export function TrainersSection() {
               key={trainer.name}
               name={trainer.name}
               specialty={trainer.specialty}
+              imageUrl={trainer.imageUrl}
             />
           ))}
         </div>
