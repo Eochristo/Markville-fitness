@@ -1,10 +1,11 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone } from "lucide-react"
 
 export function CallUsSection() {
   return (
     <section className="bg-gradient-to-br from-primary/10 to-primary/5 px-4 py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-4xl text-center">
         <h2 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
           Call Us Today
         </h2>
@@ -58,6 +59,25 @@ export function CallUsSection() {
               Sat-Sun: 8:00am - 7:00pm
             </p>
           </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-8">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=190+Bullock+Drive+Markham+Ontario+L3P+1V7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block overflow-hidden rounded-lg border border-border transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+          >
+            <Image
+              src="/images/map-location.jpg"
+              alt="Markville Fitness location map - 190 Bullock Drive, Markham"
+              width={800}
+              height={300}
+              className="w-full h-48 sm:h-56 object-cover object-center"
+            />
+          </a>
+          <p className="mt-2 text-xs text-muted-foreground">Click map to open in Google Maps</p>
         </div>
       </div>
     </section>

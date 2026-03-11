@@ -394,7 +394,7 @@ export function SiteHeader() {
                 : "translate-y-4 opacity-0"
             )}
             style={{
-              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 200}ms` : "0ms",
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 250}ms` : "0ms",
               transitionDuration: "500ms",
             }}
           >
