@@ -286,12 +286,21 @@ export function SiteHeader() {
           )}
         >
           <nav className="flex flex-col items-center gap-4" aria-label="Mobile navigation">
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS.map((link, idx) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-2xl font-semibold text-foreground transition-colors hover:text-primary"
+                className={cn(
+                  "text-2xl font-semibold text-foreground transition-all hover:text-primary",
+                  mobileOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                )}
+                style={{
+                  transitionDelay: mobileOpen ? `${idx * 75}ms` : "0ms",
+                  transitionDuration: "500ms",
+                }}
               >
                 {link.label}
               </Link>
@@ -301,13 +310,33 @@ export function SiteHeader() {
           <Link
             href="/pricing"
             onClick={() => setMobileOpen(false)}
-            className="mt-4 w-full max-w-xs rounded-lg bg-primary px-6 py-3 text-center text-base font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
+            className={cn(
+              "mt-4 w-full max-w-xs rounded-lg bg-primary px-6 py-3 text-center text-base font-semibold text-primary-foreground transition-all hover:bg-[#BE123C]",
+              mobileOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+            )}
+            style={{
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 50}ms` : "0ms",
+              transitionDuration: "500ms",
+            }}
           >
             Join Now
           </Link>
 
           {/* Login/Account Options */}
-          <div className="mt-4 flex items-center gap-4">
+          <div 
+            className={cn(
+              "mt-4 flex items-center gap-4 transition-all",
+              mobileOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+            )}
+            style={{
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 100}ms` : "0ms",
+              transitionDuration: "500ms",
+            }}
+          >
             <button
               onClick={openLoginModal}
               className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted/50"
@@ -324,11 +353,51 @@ export function SiteHeader() {
             </Link>
           </div>
 
+          {/* Heart Rate Monitor */}
+          <div 
+            className={cn(
+              "mt-4 transition-all",
+              mobileOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+            )}
+            style={{
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 150}ms` : "0ms",
+              transitionDuration: "500ms",
+            }}
+          >
+            <LiveHeartRateMonitor />
+          </div>
+
           {/* Slogan */}
-          <p className="mt-6 text-sm text-muted-foreground">Push Beyond Limits</p>
+          <p 
+            className={cn(
+              "mt-4 text-sm text-muted-foreground transition-all",
+              mobileOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+            )}
+            style={{
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 200}ms` : "0ms",
+              transitionDuration: "500ms",
+            }}
+          >
+            Push Beyond Limits
+          </p>
 
           {/* Social icons */}
-          <div className="flex items-center gap-4">
+          <div 
+            className={cn(
+              "flex items-center gap-4 transition-all",
+              mobileOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+            )}
+            style={{
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 75 + 200}ms` : "0ms",
+              transitionDuration: "500ms",
+            }}
+          >
             {SOCIAL_LINKS.map((social) => (
               <a
                 key={social.label}
