@@ -62,13 +62,13 @@ export function AmenitiesSection() {
           {amenities.map((amenity, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/10"
+              className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/10 h-full flex flex-col"
             >
               <div className="mb-4 text-4xl">{amenity.icon}</div>
               <h3 className="mb-2 text-xl font-semibold text-foreground">
                 {amenity.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed flex-grow">
                 {amenity.description}
               </p>
             </div>
