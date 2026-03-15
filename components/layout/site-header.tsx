@@ -292,9 +292,9 @@ export function SiteHeader() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "text-2xl font-semibold text-foreground transition-all hover:text-primary",
+                  "text-2xl font-semibold text-white transition-all hover:text-primary drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]",
                   mobileOpen
-                    ? "translate-y-0 opacity-100"
+                    ? "translate-y-0 opacity-100 brightness-110"
                     : "translate-y-4 opacity-0"
                 )}
                 style={{
@@ -311,9 +311,9 @@ export function SiteHeader() {
             href="/pricing"
             onClick={() => setMobileOpen(false)}
             className={cn(
-              "mt-4 w-full max-w-xs rounded-lg bg-primary px-6 py-3 text-center text-base font-semibold text-primary-foreground transition-all hover:bg-[#BE123C]",
+              "mt-4 w-full max-w-xs rounded-lg bg-primary px-6 py-3 text-center text-base font-semibold text-primary-foreground transition-all hover:bg-[#BE123C] shadow-lg shadow-primary/30",
               mobileOpen
-                ? "translate-y-0 opacity-100"
+                ? "translate-y-0 opacity-100 brightness-110"
                 : "translate-y-4 opacity-0"
             )}
             style={{
@@ -329,7 +329,7 @@ export function SiteHeader() {
             className={cn(
               "mt-4 flex items-center gap-4 transition-all",
               mobileOpen
-                ? "translate-y-0 opacity-100"
+                ? "translate-y-0 opacity-100 brightness-110"
                 : "translate-y-4 opacity-0"
             )}
             style={{
@@ -339,7 +339,7 @@ export function SiteHeader() {
           >
             <button
               onClick={openLoginModal}
-              className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted/50"
+              className="flex items-center gap-2 rounded-lg border border-white/30 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
               <UserIcon className="h-5 w-5" />
               Log In
@@ -347,7 +347,7 @@ export function SiteHeader() {
             <Link
               href="/pricing"
               onClick={() => setMobileOpen(false)}
-              className="text-sm font-medium text-primary hover:underline"
+              className="text-sm font-medium text-primary brightness-110 hover:underline"
             >
               Create Account
             </Link>
@@ -372,9 +372,9 @@ export function SiteHeader() {
           {/* Slogan */}
           <p 
             className={cn(
-              "mt-4 text-sm text-muted-foreground transition-all",
+              "mt-4 text-sm text-gray-300 transition-all",
               mobileOpen
-                ? "translate-y-0 opacity-100"
+                ? "translate-y-0 opacity-100 brightness-110"
                 : "translate-y-4 opacity-0"
             )}
             style={{
@@ -390,7 +390,7 @@ export function SiteHeader() {
             className={cn(
               "flex items-center gap-4 transition-all",
               mobileOpen
-                ? "translate-y-0 opacity-100"
+                ? "translate-y-0 opacity-100 brightness-125"
                 : "translate-y-4 opacity-0"
             )}
             style={{
@@ -405,7 +405,7 @@ export function SiteHeader() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-gray-300 transition-colors hover:text-white"
               >
                 {social.icon}
               </a>
