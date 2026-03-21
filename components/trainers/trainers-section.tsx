@@ -29,7 +29,6 @@ const TRAINERS = [
   {
     name: "Portchia",
     specialty: "Personal Training",
-    imageUrl: "/images/trainers/portchia.jpg",
   },
 ]
 
