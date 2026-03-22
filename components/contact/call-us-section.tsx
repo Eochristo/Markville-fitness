@@ -7,7 +7,7 @@ import { FadeIn, FadeInStagger } from "@/components/ui/fade-in"
 
 export function CallUsSection() {
   return (
-    <section className="bg-gradient-to-br from-primary/10 to-primary/5 px-4 py-16 sm:py-24">
+    <section className="bg-black px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl text-center">
         <FadeIn direction="up" duration={700}>
           <h2 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
