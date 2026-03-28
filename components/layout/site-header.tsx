@@ -170,10 +170,7 @@ export function SiteHeader() {
             }}
           >
             <span className="font-oleo text-3xl text-foreground border-b-2 border-foreground pb-0.5 leading-none">
-              Markville
-            </span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-foreground mt-1">
-              Fitness
+              MFfitness
             </span>
           </Link>
           <span className="ml-3 hidden text-xs text-muted-foreground lg:block">
