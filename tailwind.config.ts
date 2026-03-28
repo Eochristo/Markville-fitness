@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        oleo: ['var(--font-oleo)', 'cursive'],
       },
       colors: {
         background: 'hsl(var(--background))',

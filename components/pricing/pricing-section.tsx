@@ -6,6 +6,7 @@ import { BillingToggle } from "./billing-toggle"
 import { PricingCard } from "./pricing-card"
 import { SharedPerks } from "./shared-perks"
 import { AuthModal } from "./auth-modal"
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in"
 
 export function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("1-month")
@@ -21,27 +22,34 @@ export function PricingSection() {
     >
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mb-12 flex flex-col items-center gap-4 text-center">
-          <h2
-            id="pricing-heading"
-            className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
-          >
-            Choose Your Plan
-          </h2>
-          <p className="max-w-xl text-base text-muted-foreground leading-relaxed">
-            Find the membership that fits your fitness goals. Upgrade or
-            downgrade anytime.
-          </p>
-          <div className="mt-2">
-            <BillingToggle
-              selected={billingPeriod}
-              onChange={setBillingPeriod}
-            />
+        <FadeIn direction="up" duration={700}>
+          <div className="mb-12 flex flex-col items-center gap-4 text-center">
+            <h2
+              id="pricing-heading"
+              className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+            >
+              Choose Your Plan
+            </h2>
+            <p className="max-w-xl text-base text-muted-foreground leading-relaxed">
+              Find the membership that fits your fitness goals. Upgrade or
+              downgrade anytime.
+            </p>
+            <div className="mt-2">
+              <BillingToggle
+                selected={billingPeriod}
+                onChange={setBillingPeriod}
+              />
+            </div>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Pricing Cards Grid */}
-        <div className="mx-auto grid max-w-sm grid-cols-1 items-stretch gap-8 md:max-w-none md:grid-cols-3 lg:gap-4">
+        <FadeInStagger
+          className="mx-auto grid max-w-sm grid-cols-1 items-stretch gap-8 md:max-w-none md:grid-cols-3 lg:gap-4"
+          staggerDelay={150}
+          direction="up"
+          duration={600}
+        >
           {PLANS.map((plan, index) => (
             <PricingCard
               key={plan.id}
@@ -54,7 +62,7 @@ export function PricingSection() {
               onChoosePlan={() => setSelectedPlanName(plan.name)}
             />
           ))}
-        </div>
+        </FadeInStagger>
 
         <AuthModal
           planName={selectedPlanName ?? ""}
@@ -68,10 +76,12 @@ export function PricingSection() {
         </div>
 
         {/* Micro-copy */}
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          No commitment, cancel anytime. Existing members can change plans at
-          any time.
-        </p>
+        <FadeIn direction="up" delay={200} duration={700}>
+          <p className="mt-8 text-center text-sm text-muted-foreground">
+            No commitment, cancel anytime. Existing members can change plans at
+            any time.
+          </p>
+        </FadeIn>
       </div>
     </section>
   )

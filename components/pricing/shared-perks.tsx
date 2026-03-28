@@ -1,5 +1,8 @@
+"use client"
+
 import { Tag, Utensils } from "lucide-react"
 import { SHARED_PERKS } from "@/lib/pricing-data"
+import { FadeIn } from "@/components/ui/fade-in"
 
 const ICON_MAP = {
   tag: Tag,
@@ -8,7 +11,8 @@ const ICON_MAP = {
 
 export function SharedPerks() {
   return (
-    <div className="mx-auto max-w-2xl rounded-2xl bg-secondary/50 px-6 py-5">
+    <FadeIn direction="up" duration={700}>
+      <div className="mx-auto max-w-2xl rounded-2xl bg-secondary/50 px-6 py-5">
       <p className="mb-4 text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
         Included with every plan
       </p>
@@ -43,6 +47,7 @@ export function SharedPerks() {
           )
         })}
       </div>
-    </div>
+      </div>
+    </FadeIn>
   )
 }

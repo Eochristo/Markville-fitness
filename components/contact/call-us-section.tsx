@@ -1,32 +1,41 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
+import { Phone } from "lucide-react"
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in"
 
 export function CallUsSection() {
   return (
-    <section className="bg-gradient-to-br from-primary/10 to-primary/5 px-4 py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
-          Call Us Today
-        </h2>
-        <p className="mb-8 text-lg text-muted-foreground">
-          Ready to start your fitness journey? Get in touch with our team and take the first step towards your goals.
-        </p>
+    <section className="bg-black px-4 py-16 sm:py-24">
+      <div className="mx-auto max-w-4xl text-center">
+        <FadeIn direction="up" duration={700}>
+          <h2 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
+            Call Us Today
+          </h2>
+          <p className="mb-8 text-lg text-muted-foreground">
+            Ready to start your fitness journey? Get in touch with our team and take the first step towards your goals.
+          </p>
+        </FadeIn>
         
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="tel:905-209-0763"
-            className="rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
-          >
-            📞 Call 905-209-0763
-          </a>
-          <Link
-            href="/pricing"
-            className="rounded-lg border-2 border-primary px-8 py-4 text-lg font-semibold text-primary transition-colors hover:bg-primary/10"
-          >
-            Join Now
-          </Link>
-        </div>
+        <FadeIn direction="up" delay={150} duration={700}>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="tel:905-209-0763"
+              className="rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
+            >
+              <Phone className="inline-block h-5 w-5 text-green-500 fill-green-500" /> Call 905-209-0763
+            </a>
+            <Link
+              href="/pricing"
+              className="rounded-lg border-2 border-primary px-8 py-4 text-lg font-semibold text-primary transition-colors hover:bg-primary/10"
+            >
+              Join Now
+            </Link>
+          </div>
+        </FadeIn>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
+        <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-3" staggerDelay={100} direction="up" duration={600}>
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-center text-xl font-semibold text-foreground">Email</h3>
             <div className="flex justify-center">
@@ -40,10 +49,15 @@ export function CallUsSection() {
           </div>
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Visit Us</h3>
-            <p className="text-sm text-muted-foreground">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=190+Bullock+Drive+Markham+Ontario+L3P+1V7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-sm text-primary hover:underline transition-colors"
+            >
               190 Bullock Drive<br />
               Markham, Ontario L3P 1V7
-            </p>
+            </a>
           </div>
           <div className="rounded-lg border border-border bg-card p-6">
             <h3 className="mb-2 text-xl font-semibold text-foreground">Hours</h3>
@@ -52,7 +66,28 @@ export function CallUsSection() {
               Sat-Sun: 8:00am - 7:00pm
             </p>
           </div>
-        </div>
+        </FadeInStagger>
+
+        {/* Map Section */}
+        <FadeIn direction="up" delay={300} duration={700}>
+          <div className="mt-8">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=190+Bullock+Drive+Markham+Ontario+L3P+1V7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block overflow-hidden rounded-lg border border-border transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+          >
+            <Image
+              src="/images/map-location.jpg"
+              alt="Markville Fitness location map - 190 Bullock Drive, Markham"
+              width={800}
+              height={300}
+              className="w-full h-48 sm:h-56 object-cover object-center"
+            />
+          </a>
+          <p className="mt-2 text-xs text-muted-foreground">Click map to open in Google Maps</p>
+          </div>
+        </FadeIn>
       </div>
     </section>
   )

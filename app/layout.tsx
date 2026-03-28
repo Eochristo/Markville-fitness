@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Oleo_Script } from 'next/font/google'
+import { SiteHeader } from '@/components/layout/site-header'
 
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+})
+
+const oleoScript = Oleo_Script({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-oleo',
 })
 
 export const metadata: Metadata = {
@@ -21,7 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${oleoScript.variable} font-sans antialiased`}>
+        <SiteHeader />
         {children}
       </body>
     </html>

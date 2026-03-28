@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { FadeIn } from "@/components/ui/fade-in"
 
 export function CTASection() {
   return (
@@ -9,31 +12,37 @@ export function CTASection() {
       </div>
 
       <div className="relative mx-auto max-w-4xl text-center">
-        <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Ready to Start Your Transformation?
-        </h2>
-        <p className="mt-6 text-balance text-lg text-muted-foreground">
-          Join Markville Fitness today and get access to everything you need to achieve your goals. First month is 50% off for new members.
-        </p>
+        <FadeIn direction="up" duration={700}>
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Ready to Start Your Transformation?
+          </h2>
+          <p className="mt-6 text-balance text-lg text-muted-foreground">
+            Join Markville Fitness today and get access to everything you need to achieve your goals. First month is 50% off for new members.
+          </p>
+        </FadeIn>
 
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-          <Link
-            href="/pricing"
-            className="rounded-lg bg-primary px-8 py-4 text-center text-lg font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
-          >
-            View Membership Plans
-          </Link>
-          <a
-            href="tel:+16479876543"
-            className="rounded-lg border-2 border-foreground px-8 py-4 text-center text-lg font-semibold text-foreground transition-colors hover:bg-foreground/10"
-          >
-            Call Us Today
-          </a>
-        </div>
+        <FadeIn direction="up" delay={150} duration={700}>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+            <Link
+              href="/pricing"
+              className="rounded-lg bg-primary px-8 py-4 text-center text-lg font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C]"
+            >
+              View Membership Plans
+            </Link>
+            <a
+              href="tel:+16479876543"
+              className="rounded-lg border-2 border-foreground px-8 py-4 text-center text-lg font-semibold text-foreground transition-colors hover:bg-foreground/10"
+            >
+              Call Us Today
+            </a>
+          </div>
+        </FadeIn>
 
-        <p className="mt-8 text-sm text-muted-foreground">
-          No long-term contracts • Cancel anytime • 24/7 member support
-        </p>
+        <FadeIn direction="up" delay={300} duration={700}>
+          <p className="mt-8 text-sm text-muted-foreground">
+            No long-term contracts • Cancel anytime • 24/7 member support
+          </p>
+        </FadeIn>
       </div>
     </section>
   )
