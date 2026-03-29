@@ -22,7 +22,7 @@ export function HeroSection() {
                   Transform Your Body, Elevate Your Mind
                 </h1>
                 <p className="text-balance text-lg text-gray-200 leading-relaxed drop-shadow-md">
-                  Welcome to Markville Fitness — where elite training meets personalized coaching. Join hundreds of members achieving their fitness goals with state-of-the-art equipment, expert trainers, and a community that pushes you to excel.
+                  Welcome to MFfitness — where elite training meets personalized coaching. Join hundreds of members achieving their fitness goals with state-of-the-art equipment, expert trainers, and a community that pushes you to excel.
                 </p>
               </div>
             </FadeIn>
