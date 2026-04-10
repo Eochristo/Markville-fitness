@@ -1,6 +1,7 @@
 "use client"
 
 import { FadeIn, FadeInStagger } from "@/components/ui/fade-in"
+import BorderGlow from "@/components/ui/BorderGlow"
 
 export function AmenitiesSection() {
   const amenities = [
@@ -60,18 +61,29 @@ export function AmenitiesSection() {
           duration={600}
         >
           {amenities.map((amenity, idx) => (
-            <div
+            <BorderGlow
               key={idx}
-              className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/10 h-full flex flex-col"
+              edgeSensitivity={30}
+              glowColor="40 80 80"
+              backgroundColor="transparent"
+              borderRadius={12}
+              glowRadius={40}
+              glowIntensity={0.8}
+              coneSpread={25}
+              animated={false}
             >
-              <div className="mb-4 text-4xl">{amenity.icon}</div>
-              <h3 className="mb-2 text-xl font-semibold text-foreground">
-                {amenity.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed flex-grow">
-                {amenity.description}
-              </p>
-            </div>
+              <div
+                className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/10 h-full flex flex-col"
+              >
+                <div className="mb-4 text-4xl">{amenity.icon}</div>
+                <h3 className="mb-2 text-xl font-semibold text-foreground">
+                  {amenity.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed flex-grow">
+                  {amenity.description}
+                </p>
+              </div>
+            </BorderGlow>
           ))}
         </FadeInStagger>
       </div>
