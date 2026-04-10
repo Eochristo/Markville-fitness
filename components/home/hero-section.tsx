@@ -55,11 +55,15 @@ export function HeroSection() {
                   <p className="text-sm text-gray-300">Active Members</p>
                 </div>
                 <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-2xl font-bold text-primary">25+</p>
+                  <p className="text-2xl font-bold text-primary">
+                    <CountUp to={25} duration={2.5} separator="" />+
+                  </p>
                   <p className="text-sm text-gray-300">Expert Trainers</p>
                 </div>
                 <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-2xl font-bold text-primary">17</p>
+                  <p className="text-2xl font-bold text-primary">
+                    <CountUp to={17} duration={2.5} separator="" />
+                  </p>
                   <p className="text-sm text-gray-300">Weekly Classes</p>
                 </div>
               </div>
