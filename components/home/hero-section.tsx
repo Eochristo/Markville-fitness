@@ -1,6 +1,7 @@
 "use client"
 
 import { FadeIn } from "@/components/ui/fade-in"
+import CountUp from "@/components/ui/count-up"
 
 export function HeroSection() {
   const scrollToAmenities = () => {
@@ -48,7 +49,9 @@ export function HeroSection() {
             <FadeIn direction="up" delay={300} duration={700}>
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-2xl font-bold text-primary">500+</p>
+                  <p className="text-2xl font-bold text-primary">
+                    <CountUp to={500} duration={2.5} separator="" />+
+                  </p>
                   <p className="text-sm text-gray-300">Active Members</p>
                 </div>
                 <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4">
