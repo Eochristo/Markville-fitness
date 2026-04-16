@@ -20,7 +20,7 @@ export function HeroSection() {
             <FadeIn direction="up" duration={700}>
               <div className="space-y-4">
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
-                  Transform Your Body, Elevate Your Mind.
+                  Transform Your Body, Elevate Your Mind
                 </h1>
                 <p className="text-balance text-lg text-gray-200 leading-relaxed drop-shadow-md">
                   Welcome to MFfitness — where elite training meets personalized coaching. Join hundreds of members achieving their fitness goals with state-of-the-art equipment, expert trainers, and a community that pushes you to excel.
