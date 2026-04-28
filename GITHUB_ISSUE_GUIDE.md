@@ -8,7 +8,7 @@ Welcome, AI Engineer! This guide is designed to provide you with context, goals,
 
 ## 🎯 Current Priority
 - **Goal:** Implement the high-conversion, modern membership pricing section.
-- **Active Task:** Follow the `IMPLEMENTATION_KICKSTART.md` to build out the three pricing tiers (Starter, The Pro, Elite) with the billing toggle and Framer Motion animations.
+- **Active Task:** Configure Sentry error tracking, then follow `IMPLEMENTATION_KICKSTART.md` to build out the pricing tiers.
 
 ## 🏗️ Project Architecture & Tech Stack
 - **Framework:** Next.js 16 (App Router)
@@ -28,6 +28,7 @@ Welcome, AI Engineer! This guide is designed to provide you with context, goals,
 - [ ] Responsive & Accessibility Testing.
 
 ### 🟡 In Progress
+- [ ] Setup Sentry tracking with Next.js (`npx @sentry/wizard@latest -i nextjs`). Link to Issue #18.
 - [ ] Read and assimilate `IMPLEMENTATION_KICKSTART.md`.
 
 ### 🟢 Completed
