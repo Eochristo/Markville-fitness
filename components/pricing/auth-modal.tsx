@@ -84,12 +84,6 @@ export function AuthModal({ planName, isOpen, onClose }: AuthModalProps) {
         {/* Actions */}
         <div className="flex flex-col gap-3">
           <a
-            href="/login"
-            className="flex w-full items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-          >
-            Log In
-          </a>
-          <a
             href={`/signup?plan=${encodeURIComponent(planName)}`}
             className="flex w-full items-center justify-center rounded-lg border-2 border-foreground bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
           >
