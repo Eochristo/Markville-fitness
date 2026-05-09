@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useTransition } from "react"
 import { useSearchParams } from "next/navigation"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Loader2 } from "lucide-react"
+import { signupUser } from "@/app/signup/actions"
 
 type GymExperience = "experienced" | "first-time" | null
 
@@ -15,8 +16,11 @@ export function SignupForm() {
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [dob, setDob] = useState("")
+  const [password, setPassword] = useState("")
   const [gymExperience, setGymExperience] = useState<GymExperience>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
 
   function formatPhone(value: string) {
     const digits = value.replace(/\D/g, "").slice(0, 10)
@@ -34,7 +38,27 @@ export function SignupForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setSubmitted(true)
+    setError(null)
+    
+    startTransition(async () => {
+      const formData = new FormData()
+      formData.append('firstName', firstName)
+      formData.append('lastName', lastName)
+      formData.append('email', email)
+      formData.append('password', password)
+      formData.append('phone', phone)
+      formData.append('dob', dob)
+      if (gymExperience) formData.append('gymExperience', gymExperience)
+      formData.append('planName', planName)
+
+      const result = await signupUser(formData)
+
+      if (result.error) {
+        setError(result.error)
+      } else {
+        setSubmitted(true)
+      }
+    })
   }
 
   if (submitted) {
@@ -101,6 +125,11 @@ export function SignupForm() {
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {error && (
+              <div className="p-3 bg-red-500/10 border border-red-500/20 text-red-500 text-sm rounded-md text-center">
+                {error}
+              </div>
+            )}
             {/* Name fields */}
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
@@ -154,6 +183,26 @@ export function SignupForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="john@example.com"
+                className="rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-card-foreground"
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                minLength={6}
                 className="rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
             </div>
@@ -269,8 +318,10 @@ export function SignupForm() {
             {/* Submit */}
             <button
               type="submit"
-              className="mt-2 w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              disabled={isPending}
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[#BE123C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-50"
             >
+              {isPending && <Loader2 className="h-4 w-4 animate-spin" />}
               Create Account
             </button>
           </form>
